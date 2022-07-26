@@ -16,7 +16,7 @@ class AppModule extends Module {
 
   @override
   List<Bind> get binds => [
-        Bind.instance<DotEnvService>(DotEnvService.instance),
+        Bind.singleton<DotEnvService>((i) => DotEnvService()),
         Bind.singleton<RemoteDatabase>((i) => PostgresDatabase(i())),
         Bind.singleton<BCryptService>((i) => BCryptServiceImpl()),
       ];
