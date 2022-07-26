@@ -29,7 +29,7 @@ class PostgresDatabase implements RemoteDatabase, Disposable {
 
   @override
   Future<List<Map<String, Map<String, dynamic>>>> query(String query_text,
-      {Map<String, String> variables = const {}}) async {
+      {Map<String, dynamic> variables = const {}}) async {
     final connection = await completer.future;
     return connection.mappedResultsQuery(query_text,
         substitutionValues: variables);
