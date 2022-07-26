@@ -1,0 +1,30 @@
+GET http://localhost:4000/user
+
+###
+
+GET  http://localhost:4000/user/1
+
+###
+
+DELETE  http://localhost:4000/user/3
+
+###
+
+POST http://localhost:4000/user
+content-type: application/json
+
+{
+    "name": "sample potato",
+    "email": "potato@gmail.com",
+}
+
+###
+
+PUT http://localhost:4000/user
+content-type: application/json
+
+{
+    "id": 1,
+    "name": "Jean Lucca",
+    "email": "jeanlucca@email.com"
+}
