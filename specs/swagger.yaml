@@ -1,0 +1,161 @@
+openapi: 3.0.0
+info:
+  description: "API Semana do Backend - Dart Shelf"
+  version: "1.0.0"
+  title: "Simple Login and Auth API"
+servers:
+  - url: http://localhost:4000
+    description: 'Local server'
+tags:
+- name: "user"
+  description: "Access to User"
+paths:
+  /user:
+    get:
+      tags:
+        - 'user'
+      summary: 'get all users'
+      responses:
+        "200":
+          description: 'All good'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schema/User'
+        "404":
+          description: 'Not Found'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/BackendException'
+    post:
+      tags:
+        - 'user'
+      summary: 'create new user'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schema/creation_user'
+      responses:
+        "200":
+          description: 'All good'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schema/User'
+        "404":
+          description: 'Not Found'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/BackendException'
+    put:
+      tags:
+        - 'user'
+      summary: 'edit user by id'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schema/creation_user'
+      responses:
+        "200":
+          description: 'All good'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schema/User'
+        "404":
+          description: 'Not Found'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/BackendException'
+    delete:
+      tags:
+        - 'user'
+      summary: 'delete user by id'
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        "200":
+          description: 'All good'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/User'
+        "404":
+          description: 'Not Found'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/BackendException'
+  /user/{id}:
+    get:
+      tags:
+        - 'user'
+      summary: 'get user by id'
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        "200":
+          description: 'All good'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/User'
+        "404":
+          description: 'Not Found'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schema/BackendException'
+      
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        email:
+          type: string
+        role:
+          type: string
+          default: user
+          enum:
+            - "dev"
+            - "admin"
+            - "manager"
+    creation_user:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+    BackendException:
+      type: object
+      properties:
+        error:
+          type: string

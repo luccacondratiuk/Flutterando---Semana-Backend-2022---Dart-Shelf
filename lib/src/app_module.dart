@@ -3,6 +3,7 @@ import 'package:dart_simple_backend_shelf/src/core/services/bcrypt/bcrypt_servic
 import 'package:dart_simple_backend_shelf/src/core/services/database/postgres/postgres_database.dart';
 import 'package:dart_simple_backend_shelf/src/core/services/database/remote_database.dart';
 import 'package:dart_simple_backend_shelf/src/core/services/dot_env/dot_env_service.dart';
+import 'package:dart_simple_backend_shelf/src/modules/swagger/swagger_handler.dart';
 import 'package:dart_simple_backend_shelf/src/modules/user/user_resource.dart';
 import 'package:shelf/shelf.dart';
 import 'package:shelf_modular/shelf_modular.dart';
@@ -11,6 +12,7 @@ class AppModule extends Module {
   @override
   List<ModularRoute> get routes => [
         Route.get('/', (Request request) => Response.ok('Inicial')),
+        Route.get('/documentation/**', swaggerHandler),
         Route.resource(UserResource()),
       ];
 
