@@ -1,7 +1,4 @@
-import 'dart:async';
-
 import 'package:dart_simple_backend_shelf/dart_simple_backend_shelf.dart';
-import 'package:shelf/shelf.dart';
 import 'package:shelf/shelf_io.dart' as io;
 
 void main(List<String> arguments) async {

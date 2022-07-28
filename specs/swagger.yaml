@@ -23,13 +23,13 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schema/User'
+                  $ref: '#/components/schemas/User'
         "404":
           description: 'Not Found'
           content:
             application/json:
               schema:
-                $ref: '#/components/schema/BackendException'
+                $ref: '#/components/schemas/BackendException'
     post:
       tags:
         - 'user'
@@ -38,7 +38,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schema/creation_user'
+              $ref: '#/components/schemas/creation_user'
       responses:
         "200":
           description: 'All good'
@@ -47,13 +47,13 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schema/User'
+                  $ref: '#/components/schemas/User'
         "404":
           description: 'Not Found'
           content:
             application/json:
               schema:
-                $ref: '#/components/schema/BackendException'
+                $ref: '#/components/schemas/BackendException'
     put:
       tags:
         - 'user'
@@ -62,7 +62,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schema/creation_user'
+              $ref: '#/components/schemas/creation_user'
       responses:
         "200":
           description: 'All good'
@@ -71,13 +71,13 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schema/User'
+                  $ref: '#/components/schemas/User'
         "404":
           description: 'Not Found'
           content:
             application/json:
               schema:
-                $ref: '#/components/schema/BackendException'
+                $ref: '#/components/schemas/BackendException'
     delete:
       tags:
         - 'user'
@@ -94,13 +94,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schema/User'
+                $ref: '#/components/schemas/User'
         "404":
           description: 'Not Found'
           content:
             application/json:
               schema:
-                $ref: '#/components/schema/BackendException'
+                $ref: '#/components/schemas/BackendException'
   /user/{id}:
     get:
       tags:
@@ -118,13 +118,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schema/User'
+                $ref: '#/components/schemas/User'
         "404":
           description: 'Not Found'
           content:
             application/json:
               schema:
-                $ref: '#/components/schema/BackendException'
+                $ref: '#/components/schemas/BackendException'
       
 components:
   schemas:

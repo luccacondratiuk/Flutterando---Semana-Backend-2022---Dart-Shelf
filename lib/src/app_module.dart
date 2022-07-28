@@ -3,13 +3,10 @@ import 'package:dart_simple_backend_shelf/src/core/services/bcrypt/bcrypt_servic
 import 'package:dart_simple_backend_shelf/src/core/services/database/postgres/postgres_database.dart';
 import 'package:dart_simple_backend_shelf/src/core/services/database/remote_database.dart';
 import 'package:dart_simple_backend_shelf/src/core/services/dot_env/dot_env_service.dart';
-<<<<<<< HEAD
 import 'package:dart_simple_backend_shelf/src/modules/swagger/swagger_handler.dart';
-=======
 import 'package:dart_simple_backend_shelf/src/core/services/jwt/dart_jsonwebtoken/dart_jsonwebtoken_service.dart';
 import 'package:dart_simple_backend_shelf/src/core/services/jwt/jwt_service.dart';
 import 'package:dart_simple_backend_shelf/src/core/services/request_extractor/request_extractor.dart';
->>>>>>> a85101c (Aula 17: Login com JWT)
 import 'package:dart_simple_backend_shelf/src/modules/user/user_resource.dart';
 import 'package:shelf/shelf.dart';
 import 'package:shelf_modular/shelf_modular.dart';

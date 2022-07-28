@@ -9,7 +9,6 @@ import '../../core/services/database/remote_database.dart';
 
 class UserResource extends Resource {
   @override
-  // TODO: implement routes
   List<Route> get routes => [
         Route.get('/user', _getAllUsers), //* Sem argumentos
         Route.get('/user/:id', _getUserById), //* Dados via argumento da url
