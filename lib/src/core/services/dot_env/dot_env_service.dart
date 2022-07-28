@@ -17,7 +17,7 @@ class DotEnvService {
 
     for (var line in env_text.split('\n')) {
       final line_break = line.split('=');
-      _map[line_break[0]] = line_break[1];
+      _map[line_break[0]] = line_break[1].trim();
     }
   }
 
@@ -26,6 +26,6 @@ class DotEnvService {
   // }
 
   String? operator [](String key) {
-    return _map[key];
+    return _map[key]?.trim();
   }
 }
