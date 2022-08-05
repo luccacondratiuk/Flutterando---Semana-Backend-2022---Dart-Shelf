@@ -1,0 +1,40 @@
+services:
+  loginapi_postgresql:
+    image: postgres:14.4-alpine
+    container_name: loginapi-dart-postgresql
+    networks:
+      - postgres-network-login-api
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=12345678
+      - POSTGRES_USER=user
+    volumes:
+      - login_api_db:/var/lib/postgresql/data
+  loginapi_pgadmin:
+    image: dpage/pgadmin4
+    container_name: loginapi-dart-pgadmin
+    networks:
+      - postgres-network-login-api
+    ports:
+      - "5000:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=user@localhost.com
+      - PGADMIN_DEFAULT_PASSWORD=password
+    volumes:
+      - login_api_pgadminconfig:/var/lib/pgadmin
+      - login_api_pgadmin_servers:/pgadmin4/servers.json
+volumes:
+  login_api_db:
+    external: true
+  login_api_pgadmin_servers:
+    external: true
+  login_api_pgadminconfig:
+    external: true  
+networks:
+  postgres-network-login-api:
+    name: postgres-network-login-api
+
+
+
+    
